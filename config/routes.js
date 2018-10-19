@@ -34,25 +34,41 @@ function register(req, res) {
 };
 
 //JSON Web Token Generation
-const jwtSecret = 'that/s.my.secret.Cap,I/m.always.angry';
+const jwtKey = require('../_secrets/keys').jwtKey;
 
 function generateToken(user) {
   const jwtPayload = {
     ...user,
-    roles: ['admin', 'root'],
+    roles: ['admin'],
   };
   const jwtOptions = {
     expiresIn: '1m',
   };
   
-  return jwt.sign(jwtPayload, jwtSecret, jwtOptions);
+  return jwt.sign(jwtPayload, jwtKey, jwtOptions);
 }
-
-
-
 
 function login(req, res) {
   // implement user login
+  const creds = req.body;
+
+  db('users')
+    .where({ username: creds.username })
+    .first()
+    .then(user => {
+      if (user && bcrypt.compareSync(creds.password, user.password)) {
+        const token = generateToken(user);
+        res
+          .status(200)
+          .json({
+            welcome: user.username, token
+          });
+      } else {
+        res
+          .status(401)
+          .json({ message: 'Nope.' })
+      }
+    })
 }
 
 function getJokes(req, res) {
