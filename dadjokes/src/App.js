@@ -3,6 +3,10 @@ import { NavLink, Route } from 'react-router-dom';
 
 import './App.css';
 
+import Jokes from './components/Jokes';
+import Signin from './components/Signin';
+import Signup from './components/Signup';
+
 const Home = props => {
   return (
     <div>
@@ -48,6 +52,19 @@ class App extends Component {
             </NavLink>
           </nav>
         </header>
+        <main>
+          <Route 
+            path="/" 
+            component={Home} 
+            exact />
+          <Route 
+            path="/jokes" 
+            component={Jokes} />
+          <Route path="/signin" 
+            component={Signin} />
+          <Route path="/signup" 
+            component={Signup} />
+        </main>
       </div>
     );
   }

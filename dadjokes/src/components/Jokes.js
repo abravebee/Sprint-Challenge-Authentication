@@ -56,4 +56,4 @@ class Jokes extends Component {
   }
 }
 
-export default Users;
+export default Jokes;
