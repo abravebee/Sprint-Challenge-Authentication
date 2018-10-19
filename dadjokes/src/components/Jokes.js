@@ -16,26 +16,25 @@ class Jokes extends Component {
   }
 
     return (
-      <div>
-        <h2>Dad Jokes Galore</h2>
-        <ul>
+     
+        <div class="jokes-wrapper">
         
        {this.state.jokes.map(j => (
-            <div key={j.id}>
-            <p>{j.setup}</p>
-            <p>{j.punchline}</p>
+            <div key={j.id} class="joke">
+            <p class="setup">{j.setup}</p>
+            <p class="punchline">{j.punchline}</p>
             </div>
             
           ))}
-        </ul>
-      </div>
+        </div>
+      
     );
   }
 
   componentDidMount() {
     const token = localStorage.getItem('jwt');    
-
-    const endpoint = '';
+    
+    const endpoint = 'http://localhost:3300/api/jokes';
     const options = {
       headers: {
         Authorization: token,

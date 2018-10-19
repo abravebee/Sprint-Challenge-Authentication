@@ -49,8 +49,7 @@ class Signin extends Component {
       .then(res => {
         console.log(res.data);
         localStorage.setItem('jwt', res.data.token);
-        localStorage.setItem('dept', res.data.department);
-        this.props.history.push('/users');
+        this.props.history.push('/jokes');
       })
       .catch(err => {
         console.error('ERROR', err);

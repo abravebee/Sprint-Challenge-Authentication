@@ -1,15 +1,15 @@
+html {
+  font-size: 62.5%;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #ffed47;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,11 +22,47 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 800px;
+}
+
+.jokes-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.jokes-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.joke {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25%;
+  height: 250px;
+  margin: 10px;
+  word-wrap: break-word;
+  border: 30px dashed black;
+  background-color: yellowgreen;
+
+}
+
+.setup {
+  font-weight: 400;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2.6rem;
+}
+
+.punchline {
+  font-weight: 800;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.8rem;
+  transform: rotate(-180deg);
 }

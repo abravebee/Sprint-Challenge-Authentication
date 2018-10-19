@@ -49,7 +49,7 @@ class Signup extends Component {
       .then(res => {
         console.log(res.data);
         localStorage.setItem('jwt', res.data.token);
-        this.props.history.push('/users');
+        this.props.history.push('/jokes');
       })
       .catch(err => {
         console.error('ERROR', err);

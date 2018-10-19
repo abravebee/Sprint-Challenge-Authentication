@@ -46,7 +46,7 @@ class App extends Component {
               Sign In
             </NavLink>
             <NavLink
-              exact to="/home"
+              exact to="/"
               onClick={this.signout}>
               Sign Out
             </NavLink>
