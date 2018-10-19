@@ -12,6 +12,8 @@ module.exports = server => {
   server.get('/api/jokes', authenticate, getJokes);
 };
 
+
+//== Register ==
 function register(req, res) {
   const creds = req.body;
 
@@ -22,6 +24,7 @@ function register(req, res) {
     .insert(creds)
     .then(ids => {
       const id = ids[0];
+      console.log(ids, ids[0])
       res
         .status(201)
         .json({ newUserId: id });
@@ -33,7 +36,7 @@ function register(req, res) {
     });
 };
 
-//JSON Web Token Generation
+// == JSON Web Token Generation ==
 const jwtKey = require('../_secrets/keys').jwtKey;
 
 function generateToken(user) {
@@ -48,6 +51,7 @@ function generateToken(user) {
   return jwt.sign(jwtPayload, jwtKey, jwtOptions);
 }
 
+// == Log In ==
 function login(req, res) {
   // implement user login
   const creds = req.body;
